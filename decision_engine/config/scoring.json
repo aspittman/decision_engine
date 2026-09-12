@@ -1,0 +1,96 @@
+{
+  "weights": {
+    "opportunity": 0.45,
+    "evidence_strength": 0.15,
+    "historical_performance": 0.15,
+    "strategic_fit": 0.15,
+    "expected_roi": 0.1
+  },
+  "penalties": {
+    "risk": 0.08,
+    "cost": 0.04,
+    "uncertainty": 0.08
+  },
+  "minimum_score": 50,
+  "high_priority_score": 70,
+  "critical_priority_score": 90,
+  "max_signal_age_days": 30,
+  "history_age_days": 180,
+  "history_prior_samples": 3,
+  "recommendation_ttl_days": 14,
+  "readiness_threshold": 60,
+  "confidence_coverage_exponent": 0.5,
+  "strategies": {
+    "OUTREACH": {
+      "minimum_budget": 50,
+      "target_budget": 150,
+      "metrics": {
+        "prospect_volume": 0.3,
+        "contactability": 0.25,
+        "industry_fit": 0.2,
+        "offer_clarity": 0.25
+      },
+      "required_metrics": [
+        "prospect_volume",
+        "contactability",
+        "offer_clarity"
+      ]
+    },
+    "DOMAIN_ACQUISITION": {
+      "minimum_budget": 50,
+      "target_budget": 100,
+      "metrics": {
+        "comparable_domain_sales": 0.3,
+        "commercial_intent": 0.25,
+        "buyer_density": 0.25,
+        "domain_market_demand": 0.2
+      },
+      "required_metrics": [
+        "comparable_domain_sales",
+        "buyer_density"
+      ]
+    },
+    "GOOGLE_ADS": {
+      "minimum_budget": 100,
+      "target_budget": 750,
+      "metrics": {
+        "search_demand": 0.35,
+        "commercial_intent": 0.3,
+        "competition": 0.15,
+        "landing_page_readiness": 0.2
+      },
+      "required_metrics": [
+        "search_demand",
+        "commercial_intent",
+        "landing_page_readiness"
+      ]
+    },
+    "LANDING_PAGE_OPTIMIZATION": {
+      "minimum_budget": 50,
+      "target_budget": 250,
+      "metrics": {
+        "landing_page_readiness": 0.4,
+        "missing_cta": 0.2,
+        "broken_forms": 0.2,
+        "mobile_issues": 0.2
+      },
+      "required_metrics": [
+        "landing_page_readiness"
+      ]
+    },
+    "SEO": {
+      "minimum_budget": 100,
+      "target_budget": 300,
+      "metrics": {
+        "organic_demand": 0.35,
+        "keyword_opportunity": 0.25,
+        "ranking_difficulty": 0.15,
+        "content_gaps": 0.25
+      },
+      "required_metrics": [
+        "organic_demand",
+        "keyword_opportunity"
+      ]
+    }
+  }
+}

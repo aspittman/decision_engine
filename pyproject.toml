@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devspace-decision-engine"
+version = "0.1.0"
+description = "Deterministic, evidence-driven strategy and approval handoff for DevSpace"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7,<9", "psycopg[binary]>=3.1,<4"]
+
+[project.scripts]
+devspace-decide = "decision_engine.main:main"
+
+[tool.setuptools.packages.find]
+include = ["decision_engine*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.setuptools.package-data]
+"decision_engine.config" = ["*.json"]
