@@ -1,0 +1,10 @@
+{
+  "domain_merchant": "strategies/domain_merchant",
+  "devspace_clients": "strategies/devspace_clients",
+  "devspace_services": "strategies/devspace_services",
+  "scholarship_research": "strategies/scholarship_research",
+  "investor_research": "strategies/investor_research",
+  "google_ads": "strategies/paid_search",
+  "seo": "strategies/organic_search",
+  "landing_page": "strategies/landing_page"
+}

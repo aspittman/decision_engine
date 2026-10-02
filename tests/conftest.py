@@ -14,7 +14,7 @@ def config():
 def context():
     org = uid()
     return Context(org, {"id": org, "name": "ABC Roofing"},
-                   Constraints.parse({"monthly_marketing_budget": 1500, "max_ad_spend": 1000,
+                   Constraints.parse({"monthly_marketing_budget": 1500, "max_domain_acquisition_price": 12, "max_ad_spend": 1000,
                       "minimum_confidence": 0.65, "risk_tolerance": "MEDIUM", "target_locations": ["Salt Lake City, UT"],
                       "email_reputation_healthy": True, "maximum_cost_per_lead": 50}), [], [], [], [], {})
 

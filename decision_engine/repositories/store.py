@@ -41,7 +41,8 @@ class Repository:
         month_start = at.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
         reserved = [r for r in requests if r["status"] != "CANCELLED" and
                     (r["status"] in ("APPROVED", "QUEUED", "RUNNING") or timestamp(r["created_at"]) >= month_start)]
-        pending = [r for r in active if r["status"] in ("RECOMMENDED", "APPROVED", "MODIFIED")]
+        requested = {r["recommendation_id"] for r in reserved if r.get("recommendation_id")}
+        pending = [r for r in active if r["status"] in ("RECOMMENDED", "APPROVED", "MODIFIED") and r["id"] not in requested]
         profiles[0]["reserved_budget"] = sum(float(r["requested_parameters"]["budget_limit"]) for r in reserved) + sum(float(r.get("suggested_budget") or 0) for r in pending)
         profiles[0]["reserved_ad_budget"] = sum(float(r["requested_parameters"]["budget_limit"]) for r in reserved if r["execution_service"] in ("google_ads", "meta_ads")) + sum(float(r.get("suggested_budget") or 0) for r in pending if r["recommendation_type"] in ("GOOGLE_ADS", "META_ADS"))
         capabilities = {r["service_key"]: r["status"] for r in self.client.rows("execution_capabilities")}
@@ -58,6 +59,3 @@ class Repository:
 
     def fail_run(self, run_id, organization_id, error):
         return self.client.rpc("de_fail_run", {"p_run": run_id, "p_org": organization_id, "p_error": error})
-
-    def dispatch(self, organization_id):
-        return self.client.rpc("de_queue_approved", {"p_org": organization_id})

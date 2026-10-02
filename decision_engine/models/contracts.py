@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field, fields
 from datetime import datetime, timezone
 from math import isfinite
+import re
 from typing import Any
 from uuid import UUID, uuid4
 
@@ -16,7 +17,13 @@ def uid() -> str:
 
 
 def timestamp(value: str | datetime) -> datetime:
-    result = datetime.fromisoformat(value.replace("Z", "+00:00")) if isinstance(value, str) else value
+    if isinstance(value, str):
+        # PostgREST omits trailing fractional zeros; Python 3.10 only accepts 3/6 digits.
+        value = re.sub(r"(T\d{2}:\d{2}:\d{2}\.)(\d{1,6})(?=[+-]|Z|$)",
+                       lambda match: match[1] + match[2].ljust(6, "0"), value)
+        result = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    else:
+        result = value
     if result.tzinfo is None:
         raise ValueError("Timestamp must have a timezone")
     return result
@@ -34,6 +41,8 @@ def number(value: Any, minimum: float = 0, maximum: float | None = None) -> floa
 @dataclass(frozen=True)
 class Constraints:
     monthly_marketing_budget: float = 0
+    max_domain_acquisition_price: float = 0
+    domain_registrar: str = "GoDaddy"
     max_ad_spend: float = 0
     committed_monthly_spend: float = 0
     currency: str = "USD"
@@ -57,12 +66,14 @@ class Constraints:
         if unknown:
             raise ValueError("Unsupported constraint fields: " + ", ".join(sorted(unknown)))
         result = cls(**data)
-        for name in ("monthly_marketing_budget", "max_ad_spend", "committed_monthly_spend"):
+        for name in ("monthly_marketing_budget", "max_domain_acquisition_price", "max_ad_spend", "committed_monthly_spend"):
             number(getattr(result, name))
         number(result.minimum_confidence, 0, 1)
         if result.maximum_cost_per_lead is not None:
             number(result.maximum_cost_per_lead, 0.01)
         number(result.time_horizon_months, 0)
+        if result.domain_registrar != "GoDaddy":
+            raise ValueError("Only GoDaddy domain acquisitions are supported")
         if result.risk_tolerance not in ("LOW", "MEDIUM", "HIGH"):
             raise ValueError("Invalid risk tolerance")
         if len(result.currency) != 3 or not result.currency.isupper():

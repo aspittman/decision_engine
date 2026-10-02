@@ -45,7 +45,7 @@ def test_realistic_profiles(config, context, values, kind):
     add_signals(context, values)
     target = next(s for s in default_strategies(config) if s.kind == kind)
     result = target.evaluate(context)
-    assert result.eligible, result.blocking_reasons
+    assert result.eligible == (kind != "DOMAIN_ACQUISITION"), result.blocking_reasons
     assert result.score >= 65
     assert any(e.signal_id for e in result.evidence)
     assert result.parameters["budget_limit"] <= context.constraints.monthly_marketing_budget

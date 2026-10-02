@@ -16,7 +16,15 @@ class DecisionService:
         self.repository, self.config = repository, config
         self.strategies = strategies if strategies is not None else default_strategies(config)
 
-    def run(self, organization_id, trigger="MANUAL_REQUEST"):
+    def run(self, organization_id, trigger="MANUAL_REQUEST", *, workflow_context=None, service_id=None, decision_type=None):
+        from decision_engine.services.registry import default_registry, SERVICES, canonical_service
+        service_id = canonical_service(service_id)
+        if service_id or decision_type:
+            default_registry().get(service_id, decision_type or SERVICES.get(service_id, (None, None, None))[2])
+        if workflow_context is not None:
+            if workflow_context.get('organization_id') != organization_id or not workflow_context.get('workflow_run_id') or not workflow_context.get('service_id'):
+                raise ValueError('Invalid workflow context')
+            workflow_context = {**workflow_context, 'source_engine':'decision_engine'}
         trigger = trigger.upper()
         if trigger not in TRIGGERS:
             raise ValueError("Unknown decision trigger")
@@ -26,6 +34,17 @@ class DecisionService:
         log.info("decision_started", extra={"context": details})
         try:
             context = self.repository.context(organization_id)
+            if service_id:
+                from decision_engine.services.recommendations import recommend
+                rows, assessments = recommend(context, self.config, service_id, decision_type, workflow_context)
+                snapshot = {"report_ids": [r["id"] for r in context.reports],
+                            "constraints": asdict(context.constraints), "scoring_config": self.config,
+                            "evaluated_at": context.evaluated_at.isoformat()}
+                summary = {"service_decisions": assessments, "recommendations_created": len(rows), "errors": []}
+                for row in rows:
+                    row['metadata']['decision_run_id'] = run_id
+                self.repository.finish_run(run_id, organization_id, rows, snapshot, summary, False)
+                return {"run_id": run_id, "status": "COMPLETED", "recommendations": rows, "service_decisions": assessments}
             evaluations, errors = [], []
             for strategy in self.strategies:
                 try:
@@ -62,7 +81,21 @@ class DecisionService:
                                           "execution_capability": context.capabilities.get(item.execution_service, "UNAVAILABLE")},
                              "evidence": [asdict(e) for e in item.evidence],
                              "dependencies": [by_type[t] for t in item.dependency_types]})
-            summary = {"strategies_evaluated": len(self.strategies), "strategies_rejected": reasons,
+            for row in rows:
+                if row['execution_service'] == 'devspace_clients':
+                    row['metadata']['service_id'] = 'devspace_clients'
+            from decision_engine.services.recommendations import recommend
+            advisory_rows, service_decisions = recommend(context, self.config, workflow_context=workflow_context)
+            rows.extend(advisory_rows)
+            for row in advisory_rows:
+                row['metadata']['decision_run_id'] = run_id
+            domain_decisions = [decision for evaluation in evaluations
+                if evaluation.recommendation_type == "DOMAIN_ACQUISITION"
+                for decision in evaluation.parameters.get("candidate_decisions", [])]
+            from decision_engine.strategies.registry import assess_services
+            summary = {"service_decisions": service_decisions, "service_assessments": assess_services(context),"strategies_evaluated": len(self.strategies), "strategies_rejected": reasons,
+                       "domain_candidate_decisions": domain_decisions,
+                       "strategy_decisions": [{"type":e.recommendation_type,"service_id":e.execution_service,"eligible":e.eligible,"score":e.score,"confidence":e.confidence,"components":e.components,"blocking_reasons":e.blocking_reasons,"concerns":e.concerns} for e in evaluations],
                        "recommendations_created": len(rows), "errors": errors,
                        "confidence": [r["confidence_score"] for r in rows],
                        "duration_seconds": round(time.monotonic() - started, 3)}
@@ -73,6 +106,11 @@ class DecisionService:
                         "signals": json.loads(json.dumps([asdict(s) for s in context.signals], default=str)),
                         "history": json.loads(json.dumps([asdict(r) for r in context.history], default=str)),
                         "reserved_budget": context.profile.get("reserved_budget", 0)}
+            if workflow_context:
+                snapshot['workflow_context'] = workflow_context
+                for row in rows:
+                    if row['metadata'].get('decision_contract') != 'service-decision-v1':
+                        row['metadata']['workflow_context'] = workflow_context
             self.repository.finish_run(run_id, organization_id, rows, snapshot, summary, bool(errors))
             log.info("decision_completed", extra={"context": {**details, **summary}})
             return {"run_id": run_id, "status": "PARTIAL" if errors else "COMPLETED", "recommendations": rows}

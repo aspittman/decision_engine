@@ -24,10 +24,12 @@ def rank_and_plan(evaluations, context):
                 return False
         visiting.remove(item.recommendation_type)
         cost = Decimal(str(item.suggested_budget or 0))
-        if cost > remaining:
+        available = Decimal(str(context.constraints.max_domain_acquisition_price)) if item.recommendation_type == "DOMAIN_ACQUISITION" else remaining
+        if cost > available:
             rejected.append(f"{item.recommendation_type}: combined recommendations exceed available budget")
             return False
-        remaining -= cost
+        if item.recommendation_type != "DOMAIN_ACQUISITION":
+            remaining -= cost
         selected[item.recommendation_type] = item
         return True
 

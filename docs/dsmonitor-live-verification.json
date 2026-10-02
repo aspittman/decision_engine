@@ -1,0 +1,3326 @@
+{
+  "observed_at": "2026-10-02T11:47:04.562512+00:00",
+  "monitor_errors": [],
+  "engines": [
+    {
+      "engine_id": "mmonolith",
+      "availability": "UNKNOWN",
+      "checks": [
+        {
+          "name": "Local process",
+          "status": "UNKNOWN",
+          "reason": "No matching persistent process observed; these engines can run as batch jobs"
+        },
+        {
+          "name": "Logs",
+          "status": "HEALTHY",
+          "reason": "Bounded log tail; timestamps without a known timezone show time unknown; not a complete daily count"
+        },
+        {
+          "name": "Research store",
+          "status": "HEALTHY",
+          "reason": "Existing SQLite research tables readable; counts are UTC calendar-day totals"
+        },
+        {
+          "name": "Monitoring coverage",
+          "status": "UNKNOWN",
+          "reason": "Supabase / Database monitoring access is incomplete; this does not establish an engine failure"
+        },
+        {
+          "name": "Health coverage",
+          "status": "UNKNOWN",
+          "reason": "No health endpoint configured. Stored activity does not prove current health"
+        }
+      ]
+    },
+    {
+      "engine_id": "decision_engine",
+      "availability": "UNKNOWN",
+      "checks": [
+        {
+          "name": "Local process",
+          "status": "UNKNOWN",
+          "reason": "No matching persistent process observed; these engines can run as batch jobs"
+        },
+        {
+          "name": "Logs",
+          "status": "UNKNOWN",
+          "reason": "No readable log events available"
+        },
+        {
+          "name": "Monitoring coverage",
+          "status": "UNKNOWN",
+          "reason": "Supabase / Database monitoring access is incomplete; this does not establish an engine failure"
+        },
+        {
+          "name": "Health coverage",
+          "status": "UNKNOWN",
+          "reason": "No health endpoint configured. Stored activity does not prove current health"
+        }
+      ]
+    },
+    {
+      "engine_id": "devspace_one",
+      "availability": "UNKNOWN",
+      "checks": [
+        {
+          "name": "Local process",
+          "status": "UNKNOWN",
+          "reason": "No matching persistent process observed; these engines can run as batch jobs"
+        },
+        {
+          "name": "Logs",
+          "status": "HEALTHY",
+          "reason": "Bounded log tail; timestamps without a known timezone show time unknown; not a complete daily count"
+        },
+        {
+          "name": "Monitoring coverage",
+          "status": "UNKNOWN",
+          "reason": "Supabase / Database monitoring access is incomplete; this does not establish an engine failure"
+        },
+        {
+          "name": "Undated log errors",
+          "status": "UNKNOWN",
+          "reason": "5 error entries observed; age is unknown, so they do not establish current health"
+        },
+        {
+          "name": "Health coverage",
+          "status": "UNKNOWN",
+          "reason": "No health endpoint configured. Stored activity does not prove current health"
+        }
+      ]
+    },
+    {
+      "engine_id": "dsorchestrator",
+      "availability": "UNKNOWN",
+      "checks": [
+        {
+          "name": "Local process",
+          "status": "UNKNOWN",
+          "reason": "No matching persistent process observed; these engines can run as batch jobs"
+        },
+        {
+          "name": "Logs",
+          "status": "UNKNOWN",
+          "reason": "No readable log events available"
+        },
+        {
+          "name": "Workflow state",
+          "status": "HEALTHY",
+          "reason": "Read-only workflow state available; 0 of 0 runs loaded"
+        },
+        {
+          "name": "Monitoring coverage",
+          "status": "UNKNOWN",
+          "reason": "Supabase / Database monitoring access is incomplete; this does not establish an engine failure"
+        },
+        {
+          "name": "Health coverage",
+          "status": "UNKNOWN",
+          "reason": "No health endpoint configured. Stored activity does not prove current health"
+        }
+      ]
+    },
+    {
+      "engine_id": "crm",
+      "availability": "ONLINE",
+      "checks": [
+        {
+          "name": "CRM API",
+          "status": "HEALTHY",
+          "reason": "Authenticated organization API read succeeded; frontend is not required. Verified 2026-10-02T11:47:04.076910+00:00"
+        },
+        {
+          "name": "Historical context bounds",
+          "status": "OBSERVED",
+          "reason": "Latest 100 records per table; absent historical links remain unverified."
+        },
+        {
+          "name": "CRM context freshness",
+          "status": "ONLINE",
+          "reason": "Oldest context observation: 2026-10-02T11:47:04.488166+00:00; refresh interval 60s"
+        }
+      ]
+    },
+    {
+      "engine_id": "supabase",
+      "availability": "ONLINE",
+      "checks": [
+        {
+          "name": "Database connectivity",
+          "status": "ONLINE",
+          "reason": "PostgreSQL answered the read request with permission-denied code 42501"
+        },
+        {
+          "name": "Monitoring read access",
+          "status": "ERROR",
+          "reason": "The monitoring role cannot read organizations (42501). Database responded; engine permissions remain unverified."
+        }
+      ]
+    }
+  ],
+  "cells": [
+    {
+      "service_id": "devspace_clients",
+      "engine_id": "mmonolith",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=CONNECTED, read=VERIFIED, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "CONNECTED",
+      "read_status": "VERIFIED",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "devspace_clients",
+      "engine_id": "decision_engine",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=UNKNOWN, read=UNKNOWN, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "UNKNOWN",
+      "read_status": "UNKNOWN",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "devspace_clients",
+      "engine_id": "crm",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=CONNECTED, read=VERIFIED, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "CONNECTED",
+      "read_status": "VERIFIED",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "devspace_clients",
+      "engine_id": "dsorchestrator",
+      "status": "NOT_CONFIGURED",
+      "reason": "Weekly customer/referral and competitor research publishes client-specific reports directly to Supabase. Its connection is independently verified with tenant/service-scoped reads using the research credential. CRM onboarding and approved draft preparation are separately deployed and verified. Drafts are not sent emails. No client orchestrator schedule is activated.",
+      "connectivity_status": "UNKNOWN",
+      "read_status": "UNKNOWN",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "devspace_clients",
+      "engine_id": "devspace_one",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=UNKNOWN, read=UNKNOWN, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "UNKNOWN",
+      "read_status": "UNKNOWN",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "devspace_services",
+      "engine_id": "mmonolith",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=CONNECTED, read=VERIFIED, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "CONNECTED",
+      "read_status": "VERIFIED",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "devspace_services",
+      "engine_id": "decision_engine",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=UNKNOWN, read=UNKNOWN, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "UNKNOWN",
+      "read_status": "UNKNOWN",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "devspace_services",
+      "engine_id": "crm",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=CONNECTED, read=VERIFIED, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "CONNECTED",
+      "read_status": "VERIFIED",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "devspace_services",
+      "engine_id": "dsorchestrator",
+      "status": "NOT_CONFIGURED",
+      "reason": "Demand research publishes directly to Supabase; Decision Engine records demand-only advisory rankings in decision-run summaries. Pricing does not block research. Existing DevSpace One lead ingestion is a separate partial path; a service test or offering needs its own approval and execution plan.",
+      "connectivity_status": "UNKNOWN",
+      "read_status": "UNKNOWN",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "devspace_services",
+      "engine_id": "devspace_one",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=CONNECTED, read=VERIFIED, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "CONNECTED",
+      "read_status": "VERIFIED",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "domain_merchant",
+      "engine_id": "mmonolith",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=CONNECTED, read=VERIFIED, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "CONNECTED",
+      "read_status": "VERIFIED",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": "2026-10-01T13:01:35.598508+00:00"
+    },
+    {
+      "service_id": "domain_merchant",
+      "engine_id": "decision_engine",
+      "status": "HEALTHY",
+      "reason": "Dependencies and required reads verified; writes evidenced; registered data flow confirmed or explicitly not expected; no unresolved failure.",
+      "connectivity_status": "CONNECTED",
+      "read_status": "VERIFIED",
+      "write_status": "VERIFIED",
+      "handoff_status": "CONFIRMED",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": "2026-10-02T11:40:34.572563+00:00"
+    },
+    {
+      "service_id": "domain_merchant",
+      "engine_id": "crm",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=CONNECTED, read=VERIFIED, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "CONNECTED",
+      "read_status": "VERIFIED",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "domain_merchant",
+      "engine_id": "dsorchestrator",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=CONNECTED, read=VERIFIED, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "CONNECTED",
+      "read_status": "VERIFIED",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "domain_merchant",
+      "engine_id": "devspace_one",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=CONNECTED, read=VERIFIED, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "CONNECTED",
+      "read_status": "VERIFIED",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "investor_research",
+      "engine_id": "mmonolith",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=CONNECTED, read=VERIFIED, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "CONNECTED",
+      "read_status": "VERIFIED",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "investor_research",
+      "engine_id": "decision_engine",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=UNKNOWN, read=UNKNOWN, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "UNKNOWN",
+      "read_status": "UNKNOWN",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "investor_research",
+      "engine_id": "crm",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=CONNECTED, read=VERIFIED, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "CONNECTED",
+      "read_status": "VERIFIED",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "investor_research",
+      "engine_id": "dsorchestrator",
+      "status": "NOT_CONFIGURED",
+      "reason": "Global product intelligence and profile-specific matching are implemented. Organization enablement, source access and profiles must be verified. DevSpace One execution and orchestrator production adapters are not configured; they are not required for the research/matching path.",
+      "connectivity_status": "UNKNOWN",
+      "read_status": "UNKNOWN",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "investor_research",
+      "engine_id": "devspace_one",
+      "status": "NOT_CONFIGURED",
+      "reason": "Global product intelligence and profile-specific matching are implemented. Organization enablement, source access and profiles must be verified. DevSpace One execution and orchestrator production adapters are not configured; they are not required for the research/matching path.",
+      "connectivity_status": "UNKNOWN",
+      "read_status": "UNKNOWN",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "scholarship_research",
+      "engine_id": "mmonolith",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=CONNECTED, read=VERIFIED, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "CONNECTED",
+      "read_status": "VERIFIED",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "scholarship_research",
+      "engine_id": "decision_engine",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=UNKNOWN, read=UNKNOWN, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "UNKNOWN",
+      "read_status": "UNKNOWN",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "scholarship_research",
+      "engine_id": "crm",
+      "status": "UNKNOWN",
+      "reason": "Insufficient current capability / flow evidence: connectivity=CONNECTED, read=VERIFIED, write=UNVERIFIED, handoff=UNKNOWN, activity=UNKNOWN",
+      "connectivity_status": "CONNECTED",
+      "read_status": "VERIFIED",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "scholarship_research",
+      "engine_id": "dsorchestrator",
+      "status": "NOT_CONFIGURED",
+      "reason": "Global product intelligence and profile-specific matching are implemented. Organization enablement, source access and profiles must be verified. DevSpace One execution and orchestrator production adapters are not configured; they are not required for the research/matching path.",
+      "connectivity_status": "UNKNOWN",
+      "read_status": "UNKNOWN",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    },
+    {
+      "service_id": "scholarship_research",
+      "engine_id": "devspace_one",
+      "status": "NOT_CONFIGURED",
+      "reason": "Global product intelligence and profile-specific matching are implemented. Organization enablement, source access and profiles must be verified. DevSpace One execution and orchestrator production adapters are not configured; they are not required for the research/matching path.",
+      "connectivity_status": "UNKNOWN",
+      "read_status": "UNKNOWN",
+      "write_status": "UNVERIFIED",
+      "handoff_status": "UNKNOWN",
+      "workflow_status": "CLEAR",
+      "activity_status": "UNKNOWN",
+      "last_write": null
+    }
+  ],
+  "pipelines": {
+    "domain_merchant": [
+      {
+        "id": "intelligence_write",
+        "from": "mmonolith",
+        "to": "crm",
+        "table": "intelligence_reports",
+        "stage": "research",
+        "status": "CONFIRMED",
+        "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+        "threshold_seconds": null,
+        "evidence": [
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-01T13:01:35.321495+00:00",
+            "consumed_at": "2026-10-01T13:01:35.321495+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "7c917a64-a482-41d4-a498-8e3c25cb7a90"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-01T13:01:12.043194+00:00",
+            "consumed_at": "2026-10-01T13:01:12.043194+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "bdaf3663-cbd1-41c4-bfbc-88bcf8d9a4b7"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-01T13:00:29.890367+00:00",
+            "consumed_at": "2026-10-01T13:00:29.890367+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "f03113d2-fdc7-4993-acf6-1bcf400c690a"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-29T07:08:24.410111+00:00",
+            "consumed_at": "2026-09-29T07:08:24.410111+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "0b303bb2-bb7e-4a78-98f9-e92c544b26be"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-28T13:01:31.764216+00:00",
+            "consumed_at": "2026-09-28T13:01:31.764216+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "fdcf5708-152e-4eba-9838-60709b93cd4c"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-28T13:01:11.619965+00:00",
+            "consumed_at": "2026-09-28T13:01:11.619965+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "2d80ac20-6def-4d8f-877d-950587714959"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-28T13:00:56.769542+00:00",
+            "consumed_at": "2026-09-28T13:00:56.769542+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "cff4fe98-399c-4ac0-b17f-a7ca0b37f972"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-28T13:00:31.646542+00:00",
+            "consumed_at": "2026-09-28T13:00:31.646542+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "8005a8c3-6db7-43ec-b5ae-8becdc76b04f"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-27T13:01:11.372607+00:00",
+            "consumed_at": "2026-09-27T13:01:11.372607+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "2055c2d4-1657-4cfb-bb4c-3c9c0227766e"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-27T13:00:55.765534+00:00",
+            "consumed_at": "2026-09-27T13:00:55.765534+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "7e7e24f3-c3ef-4f50-88db-b629d723dbaf"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-27T13:00:39.524844+00:00",
+            "consumed_at": "2026-09-27T13:00:39.524844+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "d9512ce2-a4be-43b9-b6cd-8bbca16c3e90"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-26T13:00:14.967535+00:00",
+            "consumed_at": "2026-09-26T13:00:14.967535+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "ab6e26fd-090a-49f3-835f-e71a8fb0023a"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-26T13:00:12.834384+00:00",
+            "consumed_at": "2026-09-26T13:00:12.834384+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "39257c02-e7aa-4322-a977-7f2156d4921a"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-26T13:00:10.599223+00:00",
+            "consumed_at": "2026-09-26T13:00:10.599223+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "9753a123-fce2-4a1a-83c3-b1b15f922d8c"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-26T13:00:08.077769+00:00",
+            "consumed_at": "2026-09-26T13:00:08.077769+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "1e1035ea-e3f6-4993-83e6-8d474d58192c"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-25T13:01:31.013991+00:00",
+            "consumed_at": "2026-09-25T13:01:31.013991+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "1da6a7b0-3150-4fea-ad90-ab1bbcdfff31"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-25T13:01:10.144942+00:00",
+            "consumed_at": "2026-09-25T13:01:10.144942+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "10558e7f-76d6-4dd9-a337-66bef4419bb4"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-25T13:00:55.625443+00:00",
+            "consumed_at": "2026-09-25T13:00:55.625443+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "6892e952-3306-4f7f-b2ed-df9a3403f1db"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-25T13:00:25.000301+00:00",
+            "consumed_at": "2026-09-25T13:00:25.000301+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "47168fe3-4f37-418a-b48b-6b2a982ae60a"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-24T13:00:13.166348+00:00",
+            "consumed_at": "2026-09-24T13:00:13.166348+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "d2a6b4ab-1ec3-4aff-9f10-597c02742034"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-24T13:00:08.699335+00:00",
+            "consumed_at": "2026-09-24T13:00:08.699335+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "7f6ac9f1-8b6e-4878-b1ef-30899dcc043d"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-23T13:01:11.336048+00:00",
+            "consumed_at": "2026-09-23T13:01:11.336048+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "3e7647bf-eb03-424c-87e9-e3117ed24370"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-23T13:00:56.025646+00:00",
+            "consumed_at": "2026-09-23T13:00:56.025646+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "71b1769c-a058-4a06-ba26-ece3bdc6401d"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-23T13:00:38.792169+00:00",
+            "consumed_at": "2026-09-23T13:00:38.792169+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "a53d2436-8639-450a-b092-c07d5678379c"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-22T13:00:18.191793+00:00",
+            "consumed_at": "2026-09-22T13:00:18.191793+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "8c9f0b6a-2377-4188-978f-a60c9599858d"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-22T13:00:16.250084+00:00",
+            "consumed_at": "2026-09-22T13:00:16.250084+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "8d4c35e2-30c2-4c4c-b0f3-d96fc9f32cbb"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-22T13:00:11.425517+00:00",
+            "consumed_at": "2026-09-22T13:00:11.425517+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "e3fce6e4-7768-48b4-8cf3-8ec07e8fe271"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-22T13:00:08.744683+00:00",
+            "consumed_at": "2026-09-22T13:00:08.744683+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "12231abb-bb80-41ff-87a4-3280d84e25a7"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-21T13:01:25.059691+00:00",
+            "consumed_at": "2026-09-21T13:01:25.059691+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "468531d0-2439-4aa3-a54b-065366e938f6"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-21T13:01:12.989177+00:00",
+            "consumed_at": "2026-09-21T13:01:12.989177+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "b64b4c1d-0b78-4ad7-9272-3016595870a5"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-21T13:00:59.824851+00:00",
+            "consumed_at": "2026-09-21T13:00:59.824851+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "b64ac061-c70f-443d-a96f-818ddc38e9a9"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-21T13:00:21.671654+00:00",
+            "consumed_at": "2026-09-21T13:00:21.671654+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "4eff2b6f-4045-4f20-a913-2991864eeafa"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-20T06:04:40.358689+00:00",
+            "consumed_at": "2026-09-20T06:04:40.358689+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "526b3cbe-e9b1-402b-b0be-5b5167b696d0"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-09-20T06:04:35.052925+00:00",
+            "consumed_at": "2026-09-20T06:04:35.052925+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "2572fc86-0f0a-43c8-9e25-f394a8137d9f"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": null,
+            "consumed_at": null,
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "2a885a88-50a7-47e4-9bc9-a918e1411b1a"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": null,
+            "consumed_at": null,
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "ef4fe11c-f790-49a9-acbd-595bcaffccea"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": null,
+            "consumed_at": null,
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "e8ca5efe-c776-486f-be47-5839f5830f11"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": null,
+            "consumed_at": null,
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "728449d1-dfab-4063-bc2a-d8f6dc1a6b93"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": null,
+            "consumed_at": null,
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "f6774954-c963-4cff-985f-e977fe9d5685"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": null,
+            "consumed_at": null,
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "ed1a5c0a-6aba-472a-aecf-8570fe658106"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": null,
+            "consumed_at": null,
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "f79f43c3-aec5-49d4-aff1-23b296a23540"
+              }
+            ]
+          }
+        ],
+        "trace_id": null,
+        "trace_ids": []
+      },
+      {
+        "id": "intelligence_read",
+        "from": "crm",
+        "to": "decision_engine",
+        "table": "intelligence_reports",
+        "consumer_table": "recommendation_evidence",
+        "foreign_key": "intelligence_report_id",
+        "stage": "decision",
+        "status": "CONFIRMED",
+        "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+        "threshold_seconds": null,
+        "evidence": [
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-10-01T13:01:35.321495+00:00",
+            "consumed_at": "2026-10-02T11:40:33.532283+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "7c917a64-a482-41d4-a498-8e3c25cb7a90"
+              },
+              {
+                "trace_id": "fdf159703096d8507afa13c870a5f457",
+                "event_id": "a92f757b94ba27f032305d57b23146cd",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-10-01T13:01:12.043194+00:00",
+            "consumed_at": "2026-10-02T11:40:33.536583+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "bdaf3663-cbd1-41c4-bfbc-88bcf8d9a4b7"
+              },
+              {
+                "trace_id": "65bcdc0f3de731f90383bef36e5a23de",
+                "event_id": "ca2a0a38d63b5f3951bdc6324c77e19f",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Same-organization downstream record explicitly references this source ID.",
+            "source_at": "2026-10-01T13:00:29.890367+00:00",
+            "consumed_at": "2026-10-02T11:40:34.398177+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "f03113d2-fdc7-4993-acf6-1bcf400c690a"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "cf1b2229-8b87-4c59-a511-6f44b055cd8d",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "08982b49-a663-4ffd-b0c6-dcaa8df27942",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "49c7de80-e47e-4d93-9d2c-a0dbe7bc3191",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "50755dc9-84ee-4fa8-ba46-9c5230f9921c",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "618eeae3-92a5-4991-a329-d912e089dff6",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "06a33acd-32a0-48df-af6d-42d42c6c4f67",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "1a5db703-4079-4fe5-a261-9638ebdfee60",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "1e9b6011-a8f6-4f91-ab2a-97b023e6fb6a",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "f0335d48-473d-422c-8bec-3c81213e9fb3",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "fe534029-12a4-4e39-8755-ca335c4a32de",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "a618330e-bfcb-40e1-85a2-817afb7e06fb",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "aa36a0fd-ae86-48c6-a742-f48b934a6e4a",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "61137a23-770d-40b0-bbc0-8c7da4b08191",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "69cf7e40-0c38-4c7b-bedc-8d0e3e0a3a81",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "c7de5b17-7d74-4ad6-99a7-91a620ff4d19",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "2894ba65-8c6b-47f1-a3cd-b2bbd68febae",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "45eae600-e146-4726-8daa-d9f282e8b4aa",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "36d40144-7f94-4308-9b8f-be3a63da7f41",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "f16972a3-bdb9-443b-9f48-eb53af5b1d93",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "565819c8-ab00-42c1-a47e-58cb6d64cdba",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "203e2349-d526-4dae-918b-f1d95e322b9e",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "c16b5439-ec97-4af0-856d-f3bca021d6eb",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "9cca6274-c604-4198-8def-2758f5c8f86c",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "88703603-52e5-4963-8ea8-5c3a0e6d2156",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "1508fc85-058b-4a9c-a6aa-a10c5f461e8b",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "bd191c41-b330-4490-b6be-3555852e029f",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "e9c5f2ca-e214-40a9-b80b-4d17084a6d6e",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "a5178800-167b-4f85-a4fb-c7471d833ef6",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "cce8b529-27a9-4b12-a6d8-d642e2c8e15f",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "09d8cad4-5816-4246-99a5-80d9ae5beb63",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "9a5ece18-7aee-4fb0-a5aa-a40b14c3d6c6",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "145252e8-68d3-472b-ac02-3659421acb41",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "0007e14d-89fe-485f-a3b1-8da676e01f60",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "ecfdf815-dc8f-450a-ab03-34d67b91a050",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "f59db8c1-e735-4a1b-93de-4c488a00256c",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "4baaf665-3660-413b-a764-bc09b079c58a",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "3cec8736-9266-4591-9c69-da9bb767abdc",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "00ded9da-1a1a-4161-bcdb-df53e984fa53",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "fcc75dd6-531c-478f-aa28-9ddf151dc3c1",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "89292c86-8db4-4ca2-ae26-cb1e93214b49",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "62b9a07c-165e-4b46-8d25-f74cfa74bd09",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "2f04624a-1960-4e3f-b409-c18b941d1769",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "fd575fab-f1af-4548-b540-5290ca6ae2a5",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "8b24928a-2bae-4fc4-8a31-d2d18f23dd8c",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "f2110202-b03b-4f98-9944-07e9cf52115d",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "3c8f3bfa-637f-4e07-a97f-02797b0f355d",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "60acf282-2542-4a67-bf20-4dc23641b0d1",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "b7297b7b-3ebc-4733-b96a-09003f29348d",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "36997685-d42a-4873-aacb-cce147e9765e",
+                "field": "intelligence_report_id"
+              },
+              {
+                "table": "recommendation_evidence",
+                "id": "8348cfbd-8c86-4161-81e7-38fb3c48e1c1",
+                "field": "intelligence_report_id"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-29T07:08:24.410111+00:00",
+            "consumed_at": "2026-10-02T11:40:33.524745+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "0b303bb2-bb7e-4a78-98f9-e92c544b26be"
+              },
+              {
+                "trace_id": "323f8b70ce4f7245bd01a6e7a69ff4c6",
+                "event_id": "5a7773b19556b7dba926597d618f5f46",
+                "workflow_run_id": "774e9c8e-eb3a-4340-9dd5-7d714e48c845"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-28T13:01:31.764216+00:00",
+            "consumed_at": "2026-10-02T11:40:33.541068+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "fdcf5708-152e-4eba-9838-60709b93cd4c"
+              },
+              {
+                "trace_id": "6237ba19284475b5dec6667d3b718eb4",
+                "event_id": "0b3b3816919bbcd0d72fe7c8f83eda5a",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-28T13:01:11.619965+00:00",
+            "consumed_at": "2026-10-02T11:40:33.528855+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "2d80ac20-6def-4d8f-877d-950587714959"
+              },
+              {
+                "trace_id": "2d32ef4d906c0a0ca53464e67bc457d2",
+                "event_id": "5eaa4a5553b8ccc1e5ddb420f8ef6e3c",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-28T13:00:56.769542+00:00",
+            "consumed_at": "2026-10-02T11:40:33.537056+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "cff4fe98-399c-4ac0-b17f-a7ca0b37f972"
+              },
+              {
+                "trace_id": "099328495d6f062c288b3ea3fa97848f",
+                "event_id": "fddd11fa045f585962f8e0a6b50e5e50",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-28T13:00:31.646542+00:00",
+            "consumed_at": "2026-10-02T11:40:33.533303+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "8005a8c3-6db7-43ec-b5ae-8becdc76b04f"
+              },
+              {
+                "trace_id": "19439fa407a708ffc2ecd84edb468c86",
+                "event_id": "90856ad3e0ae13b31743237468e4c9e5",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-27T13:01:11.372607+00:00",
+            "consumed_at": "2026-10-02T11:40:33.527345+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "2055c2d4-1657-4cfb-bb4c-3c9c0227766e"
+              },
+              {
+                "trace_id": "1aac8a81a01dd9cf06965be0c16b20e0",
+                "event_id": "7f161f83eb3a14e94e3676a6e56a8bf2",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-27T13:00:55.765534+00:00",
+            "consumed_at": "2026-10-02T11:40:33.532645+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "7e7e24f3-c3ef-4f50-88db-b629d723dbaf"
+              },
+              {
+                "trace_id": "e86422b84cd2842ec6d9c78cfc06002a",
+                "event_id": "6b31e379fb337ba766a6c041c8518a3e",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-27T13:00:39.524844+00:00",
+            "consumed_at": "2026-10-02T11:40:33.537999+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "d9512ce2-a4be-43b9-b6cd-8bbca16c3e90"
+              },
+              {
+                "trace_id": "222f793cb1ea546f8ba7c61c70f4447d",
+                "event_id": "9ba90c65b1c79119e80a26e15ce01d38",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-26T13:00:14.967535+00:00",
+            "consumed_at": "2026-10-02T11:40:33.535332+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "ab6e26fd-090a-49f3-835f-e71a8fb0023a"
+              },
+              {
+                "trace_id": "bbdb470404ac86e924da9a1c96dd6c6d",
+                "event_id": "8319bbbec9d72d619aa97ddc5dd995e9",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-26T13:00:12.834384+00:00",
+            "consumed_at": "2026-10-02T11:40:33.529195+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "39257c02-e7aa-4322-a977-7f2156d4921a"
+              },
+              {
+                "trace_id": "0268c17eaa1e99e021202a3109e9cdfe",
+                "event_id": "3c08a48b192f77a26b26fe684ddf8611",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-26T13:00:10.599223+00:00",
+            "consumed_at": "2026-10-02T11:40:33.534373+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "9753a123-fce2-4a1a-83c3-b1b15f922d8c"
+              },
+              {
+                "trace_id": "26de5303c69e4b98beb4d0092bea9430",
+                "event_id": "71514fce94c8e34115a2352dbef9f203",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-26T13:00:08.077769+00:00",
+            "consumed_at": "2026-10-02T11:40:33.526753+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "1e1035ea-e3f6-4993-83e6-8d474d58192c"
+              },
+              {
+                "trace_id": "070f99da0da57a3c6a32c733cbbaac78",
+                "event_id": "d4183229fea0f72a73eb71c7f1ba0b88",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-25T13:01:31.013991+00:00",
+            "consumed_at": "2026-10-02T11:40:33.526285+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "1da6a7b0-3150-4fea-ad90-ab1bbcdfff31"
+              },
+              {
+                "trace_id": "41d54befa76d7d8c9bedfc103ae28504",
+                "event_id": "2316a7444706dce38dc6ade2352a5055",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-25T13:01:10.144942+00:00",
+            "consumed_at": "2026-10-02T11:40:33.525329+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "10558e7f-76d6-4dd9-a337-66bef4419bb4"
+              },
+              {
+                "trace_id": "92d76495160ccd64fdd6499dee4e16a7",
+                "event_id": "60910cad8c54bd76f2c0f4e7ae5cf659",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-25T13:00:55.625443+00:00",
+            "consumed_at": "2026-10-02T11:40:33.531280+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "6892e952-3306-4f7f-b2ed-df9a3403f1db"
+              },
+              {
+                "trace_id": "cb48c9c0a860d86e334ecb6b537200c3",
+                "event_id": "c05bb58d37ca108e1474e985830d5fae",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-25T13:00:25.000301+00:00",
+            "consumed_at": "2026-10-02T11:40:33.530203+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "47168fe3-4f37-418a-b48b-6b2a982ae60a"
+              },
+              {
+                "trace_id": "a7a12633e335cef0acef544105717649",
+                "event_id": "c598377b1c1b4399ce567ef7603ea088",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-24T13:00:13.166348+00:00",
+            "consumed_at": "2026-10-02T11:40:33.537523+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "d2a6b4ab-1ec3-4aff-9f10-597c02742034"
+              },
+              {
+                "trace_id": "771b5c6167d9664c75edcecd64c4e882",
+                "event_id": "3aabed4d4c6e614bd561a17eef6d73f0",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-24T13:00:08.699335+00:00",
+            "consumed_at": "2026-10-02T11:40:33.532980+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "7f6ac9f1-8b6e-4878-b1ef-30899dcc043d"
+              },
+              {
+                "trace_id": "b270577dbe6e7e01d08cef73ab4c3eda",
+                "event_id": "024706ab1cd6023dab6e2f8b20a4e975",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-23T13:01:11.336048+00:00",
+            "consumed_at": "2026-10-02T11:40:33.529527+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "3e7647bf-eb03-424c-87e9-e3117ed24370"
+              },
+              {
+                "trace_id": "46cf277ac83f7d1c21985d226ac98bd6",
+                "event_id": "01ae8d1e17158c8943bbc28fb09e28ae",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-23T13:00:56.025646+00:00",
+            "consumed_at": "2026-10-02T11:40:33.531612+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "71b1769c-a058-4a06-ba26-ece3bdc6401d"
+              },
+              {
+                "trace_id": "262d4b73c1769a1aa6195be335ca9edc",
+                "event_id": "096b28dc312ecfa20966015fb9e14682",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-23T13:00:38.792169+00:00",
+            "consumed_at": "2026-10-02T11:40:33.534776+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "a53d2436-8639-450a-b092-c07d5678379c"
+              },
+              {
+                "trace_id": "d51015ba627a0f569b1623b5d901ab0f",
+                "event_id": "5c0eaa59c8a2ac6466c3f0b6c89b5e5e",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-22T13:00:18.191793+00:00",
+            "consumed_at": "2026-10-02T11:40:33.533650+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "8c9f0b6a-2377-4188-978f-a60c9599858d"
+              },
+              {
+                "trace_id": "525aa8ce8569bde6cbbc6b7f822004fd",
+                "event_id": "114398ddef5caea4bd3e23a89092d54c",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-22T13:00:16.250084+00:00",
+            "consumed_at": "2026-10-02T11:40:33.534019+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "8d4c35e2-30c2-4c4c-b0f3-d96fc9f32cbb"
+              },
+              {
+                "trace_id": "3c802e6e6c801a28c4adbf9cf064aa71",
+                "event_id": "54d7247ac6aa9c9c61e722bd85394e05",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-22T13:00:11.425517+00:00",
+            "consumed_at": "2026-10-02T11:40:33.538493+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "e3fce6e4-7768-48b4-8cf3-8ec07e8fe271"
+              },
+              {
+                "trace_id": "90b58f9f159e591b76e2e75eedb785ab",
+                "event_id": "2bec0f99ff246f366afaf46ab9d25e1b",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-22T13:00:08.744683+00:00",
+            "consumed_at": "2026-10-02T11:40:33.525844+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "12231abb-bb80-41ff-87a4-3280d84e25a7"
+              },
+              {
+                "trace_id": "ae11645df9e43f184191528d5294bbac",
+                "event_id": "b8d8023ff6b457e8f4aa796153c4406c",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-21T13:01:25.059691+00:00",
+            "consumed_at": "2026-10-02T11:40:33.529865+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "468531d0-2439-4aa3-a54b-065366e938f6"
+              },
+              {
+                "trace_id": "051795bdd05859a90ac75a00309d5b0f",
+                "event_id": "ca31757ece8cf010c27c337b07e79d67",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-21T13:01:12.989177+00:00",
+            "consumed_at": "2026-10-02T11:40:33.536164+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "b64b4c1d-0b78-4ad7-9272-3016595870a5"
+              },
+              {
+                "trace_id": "6721bdcb46fb18f53506fb7a88fc8085",
+                "event_id": "28854ab3c077e7dbd4796fba2585287a",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-21T13:00:59.824851+00:00",
+            "consumed_at": "2026-10-02T11:40:33.535759+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "b64ac061-c70f-443d-a96f-818ddc38e9a9"
+              },
+              {
+                "trace_id": "f4e19c53aa64e21a890377a5febfe003",
+                "event_id": "3a12543be7009f4d7a2fb12937ea35e0",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-21T13:00:21.671654+00:00",
+            "consumed_at": "2026-10-02T11:40:33.530545+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "4eff2b6f-4045-4f20-a913-2991864eeafa"
+              },
+              {
+                "trace_id": "d9492a207b68c9f4f8cb36e9c7b5be33",
+                "event_id": "621dec980f965f54d71e70d5f87b4258",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-20T06:04:40.358689+00:00",
+            "consumed_at": "2026-10-02T11:40:33.530881+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "526b3cbe-e9b1-402b-b0be-5b5167b696d0"
+              },
+              {
+                "trace_id": "e97eaf8a9b6dd885490b12cfe96891cb",
+                "event_id": "0c22ea2b9ece309f239fdea6aab94159",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": "2026-09-20T06:04:35.052925+00:00",
+            "consumed_at": "2026-10-02T11:40:33.527946+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "2572fc86-0f0a-43c8-9e25-f394a8137d9f"
+              },
+              {
+                "trace_id": "e9b2355f6e7a87d215423f8b9cd45c8d",
+                "event_id": "b20803a8ebcef138185aca72eb084e39",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": null,
+            "consumed_at": "2026-10-02T11:40:33.528420+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "2a885a88-50a7-47e4-9bc9-a918e1411b1a"
+              },
+              {
+                "trace_id": "26ea1467df2213e8ea7cf02f257375af",
+                "event_id": "9fd7df2627f5f623ed491bce0dc6161d",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": null,
+            "consumed_at": "2026-10-02T11:40:33.539948+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "ef4fe11c-f790-49a9-acbd-595bcaffccea"
+              },
+              {
+                "trace_id": "2c807115c5ff293049f5a02a4e4264a8",
+                "event_id": "27e0a24582d6768ca685e1f9e0404f60",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": null,
+            "consumed_at": "2026-10-02T11:40:33.539117+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "e8ca5efe-c776-486f-be47-5839f5830f11"
+              },
+              {
+                "trace_id": "b3f139e32ae1ff8552e34f624d81c1ed",
+                "event_id": "0916b2c29d25682c59dfe8f6eade66eb",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": null,
+            "consumed_at": "2026-10-02T11:40:33.531932+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "728449d1-dfab-4063-bc2a-d8f6dc1a6b93"
+              },
+              {
+                "trace_id": "5e79a03181f3ea6b3c0b817fa03a4876",
+                "event_id": "be749b8683baabe86638c015f103c969",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": null,
+            "consumed_at": "2026-10-02T11:40:33.540530+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "f6774954-c963-4cff-985f-e977fe9d5685"
+              },
+              {
+                "trace_id": "3baee41e21ab6b818c58e29da508c476",
+                "event_id": "3f0bbe006a437618c06d6f3e99d10cd0",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": null,
+            "consumed_at": "2026-10-02T11:40:33.539583+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "ed1a5c0a-6aba-472a-aecf-8570fe658106"
+              },
+              {
+                "trace_id": "95177410910494d2ba236560b03d6d6c",
+                "event_id": "c64c640c9707d0fc114d614d77097cb9",
+                "workflow_run_id": null
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Explicit engine read receipt references the same tenant, table and record ID.",
+            "source_at": null,
+            "consumed_at": "2026-10-02T11:40:33.540778+00:00",
+            "observed_at": "2026-10-02T11:47:04.488166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": false,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "intelligence_reports",
+                "id": "f79f43c3-aec5-49d4-aff1-23b296a23540"
+              },
+              {
+                "trace_id": "182f4afaf4eff1af06f335c3a59bee25",
+                "event_id": "dc6e208db27948caf9b757d72023d61d",
+                "workflow_run_id": null
+              }
+            ]
+          }
+        ],
+        "trace_id": null,
+        "trace_ids": [
+          "0268c17eaa1e99e021202a3109e9cdfe",
+          "051795bdd05859a90ac75a00309d5b0f",
+          "070f99da0da57a3c6a32c733cbbaac78",
+          "099328495d6f062c288b3ea3fa97848f",
+          "182f4afaf4eff1af06f335c3a59bee25",
+          "19439fa407a708ffc2ecd84edb468c86",
+          "1aac8a81a01dd9cf06965be0c16b20e0",
+          "222f793cb1ea546f8ba7c61c70f4447d",
+          "262d4b73c1769a1aa6195be335ca9edc",
+          "26de5303c69e4b98beb4d0092bea9430",
+          "26ea1467df2213e8ea7cf02f257375af",
+          "2c807115c5ff293049f5a02a4e4264a8",
+          "2d32ef4d906c0a0ca53464e67bc457d2",
+          "323f8b70ce4f7245bd01a6e7a69ff4c6",
+          "3baee41e21ab6b818c58e29da508c476",
+          "3c802e6e6c801a28c4adbf9cf064aa71",
+          "41d54befa76d7d8c9bedfc103ae28504",
+          "46cf277ac83f7d1c21985d226ac98bd6",
+          "525aa8ce8569bde6cbbc6b7f822004fd",
+          "5e79a03181f3ea6b3c0b817fa03a4876",
+          "6237ba19284475b5dec6667d3b718eb4",
+          "65bcdc0f3de731f90383bef36e5a23de",
+          "6721bdcb46fb18f53506fb7a88fc8085",
+          "771b5c6167d9664c75edcecd64c4e882",
+          "90b58f9f159e591b76e2e75eedb785ab",
+          "92d76495160ccd64fdd6499dee4e16a7",
+          "95177410910494d2ba236560b03d6d6c",
+          "a7a12633e335cef0acef544105717649",
+          "ae11645df9e43f184191528d5294bbac",
+          "b270577dbe6e7e01d08cef73ab4c3eda",
+          "b3f139e32ae1ff8552e34f624d81c1ed",
+          "bbdb470404ac86e924da9a1c96dd6c6d",
+          "cb48c9c0a860d86e334ecb6b537200c3",
+          "d51015ba627a0f569b1623b5d901ab0f",
+          "d9492a207b68c9f4f8cb36e9c7b5be33",
+          "e86422b84cd2842ec6d9c78cfc06002a",
+          "e97eaf8a9b6dd885490b12cfe96891cb",
+          "e9b2355f6e7a87d215423f8b9cd45c8d",
+          "f4e19c53aa64e21a890377a5febfe003",
+          "fdf159703096d8507afa13c870a5f457"
+        ]
+      },
+      {
+        "id": "recommendation_write",
+        "from": "decision_engine",
+        "to": "crm",
+        "table": "recommendations",
+        "stage": "decision",
+        "status": "CONFIRMED",
+        "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+        "threshold_seconds": null,
+        "evidence": [
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.572563+00:00",
+            "consumed_at": "2026-10-02T11:40:34.572563+00:00",
+            "observed_at": "2026-10-02T11:47:05.266926+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "72e02509-e242-4cea-8746-0e80d16c0b8f"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.572196+00:00",
+            "consumed_at": "2026-10-02T11:40:34.572196+00:00",
+            "observed_at": "2026-10-02T11:47:05.266828+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "6e0fa7a4-f2a1-48b8-9353-7f21c2a0484f"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.571852+00:00",
+            "consumed_at": "2026-10-02T11:40:34.571852+00:00",
+            "observed_at": "2026-10-02T11:47:05.266704+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "ee30c070-526f-4bc3-a9f1-9087321c4707"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.571475+00:00",
+            "consumed_at": "2026-10-02T11:40:34.571475+00:00",
+            "observed_at": "2026-10-02T11:47:05.266603+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "1c296ef9-ec13-4a0d-82d4-7bac5b704070"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.570897+00:00",
+            "consumed_at": "2026-10-02T11:40:34.570897+00:00",
+            "observed_at": "2026-10-02T11:47:05.266526+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "8c74037d-12a3-43ba-8ac2-21ecb0e28d0f"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.570646+00:00",
+            "consumed_at": "2026-10-02T11:40:34.570646+00:00",
+            "observed_at": "2026-10-02T11:47:05.266455+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "fea6ab6f-ea54-4b62-8969-d6997771744f"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.570429+00:00",
+            "consumed_at": "2026-10-02T11:40:34.570429+00:00",
+            "observed_at": "2026-10-02T11:47:05.266366+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "4700af32-7c3c-4435-b5f9-dbb650524327"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.570201+00:00",
+            "consumed_at": "2026-10-02T11:40:34.570201+00:00",
+            "observed_at": "2026-10-02T11:47:05.266244+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "37d5e0bf-8f6b-4690-ad50-f51f647feebb"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.569983+00:00",
+            "consumed_at": "2026-10-02T11:40:34.569983+00:00",
+            "observed_at": "2026-10-02T11:47:05.266180+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "4d4a1939-af51-4302-a180-2d78fa689a76"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.569738+00:00",
+            "consumed_at": "2026-10-02T11:40:34.569738+00:00",
+            "observed_at": "2026-10-02T11:47:05.266116+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "58e8b685-58b2-40e3-9448-f366c27dae15"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.569444+00:00",
+            "consumed_at": "2026-10-02T11:40:34.569444+00:00",
+            "observed_at": "2026-10-02T11:47:05.266048+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "e4ace2b9-c7f2-44c3-8381-d9a2e511d375"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.569184+00:00",
+            "consumed_at": "2026-10-02T11:40:34.569184+00:00",
+            "observed_at": "2026-10-02T11:47:05.265979+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "4a5c5300-9534-42ee-94c3-9876bbe65aa7"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.568921+00:00",
+            "consumed_at": "2026-10-02T11:40:34.568921+00:00",
+            "observed_at": "2026-10-02T11:47:05.265884+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "94318cfe-ad82-4820-845f-2cd687e1c582"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.568571+00:00",
+            "consumed_at": "2026-10-02T11:40:34.568571+00:00",
+            "observed_at": "2026-10-02T11:47:05.265815+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "12fe81e5-b461-4140-b070-827636baafe6"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.568101+00:00",
+            "consumed_at": "2026-10-02T11:40:34.568101+00:00",
+            "observed_at": "2026-10-02T11:47:05.265751+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "242c9e21-b1c2-458c-a8c5-0bc345b0f7be"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.567703+00:00",
+            "consumed_at": "2026-10-02T11:40:34.567703+00:00",
+            "observed_at": "2026-10-02T11:47:05.265679+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "a40cea6b-03e1-4c0c-b1ec-e96f6681640f"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.567393+00:00",
+            "consumed_at": "2026-10-02T11:40:34.567393+00:00",
+            "observed_at": "2026-10-02T11:47:05.265591+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "3fbb8e4a-36b4-4bde-949d-5be91bee404e"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.567112+00:00",
+            "consumed_at": "2026-10-02T11:40:34.567112+00:00",
+            "observed_at": "2026-10-02T11:47:05.265524+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "47d89795-a456-4414-a275-483a06e13cfa"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.566771+00:00",
+            "consumed_at": "2026-10-02T11:40:34.566771+00:00",
+            "observed_at": "2026-10-02T11:47:05.265462+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "daef759a-e402-450a-9377-310d6c82bd8f"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.566482+00:00",
+            "consumed_at": "2026-10-02T11:40:34.566482+00:00",
+            "observed_at": "2026-10-02T11:47:05.265392+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "1eae62da-cb3f-4da4-a77f-9f05ae0d5bb0"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.566187+00:00",
+            "consumed_at": "2026-10-02T11:40:34.566187+00:00",
+            "observed_at": "2026-10-02T11:47:05.265324+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "83ec2716-d0ae-4b3c-b7bd-d4d14829f6aa"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.565897+00:00",
+            "consumed_at": "2026-10-02T11:40:34.565897+00:00",
+            "observed_at": "2026-10-02T11:47:05.265263+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "665a5587-7547-4e4a-b752-1bb0141aa217"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.565606+00:00",
+            "consumed_at": "2026-10-02T11:40:34.565606+00:00",
+            "observed_at": "2026-10-02T11:47:05.265205+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "aa4faedb-cdbd-4113-8a7d-7530bf98da8e"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.565349+00:00",
+            "consumed_at": "2026-10-02T11:40:34.565349+00:00",
+            "observed_at": "2026-10-02T11:47:05.265106+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "efe439bb-9571-4716-9b91-b1d19debb94d"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.565133+00:00",
+            "consumed_at": "2026-10-02T11:40:34.565133+00:00",
+            "observed_at": "2026-10-02T11:47:05.265040+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "6c1b154a-60a5-4b3e-a163-691a4944c825"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.564888+00:00",
+            "consumed_at": "2026-10-02T11:40:34.564888+00:00",
+            "observed_at": "2026-10-02T11:47:05.264968+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "4f961f8d-1ed5-45f8-a5f2-f730aa618fca"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.564638+00:00",
+            "consumed_at": "2026-10-02T11:40:34.564638+00:00",
+            "observed_at": "2026-10-02T11:47:05.264870+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "5b953ace-3d53-4db1-91cb-148fae435a73"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.564422+00:00",
+            "consumed_at": "2026-10-02T11:40:34.564422+00:00",
+            "observed_at": "2026-10-02T11:47:05.264559+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "e8e0f3f5-027a-476c-abb9-90f333f279f9"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.564174+00:00",
+            "consumed_at": "2026-10-02T11:40:34.564174+00:00",
+            "observed_at": "2026-10-02T11:47:05.264471+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "e49a083e-42e8-4627-b6cf-033883129246"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.563877+00:00",
+            "consumed_at": "2026-10-02T11:40:34.563877+00:00",
+            "observed_at": "2026-10-02T11:47:05.264353+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "75eba4f2-08ef-490b-ab4c-0d8bd0d165e5"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.563628+00:00",
+            "consumed_at": "2026-10-02T11:40:34.563628+00:00",
+            "observed_at": "2026-10-02T11:47:05.264294+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "075743d2-dae4-4da8-8196-b625a52a783b"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.563415+00:00",
+            "consumed_at": "2026-10-02T11:40:34.563415+00:00",
+            "observed_at": "2026-10-02T11:47:05.264227+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "4f8fc27e-7295-48b5-80f9-96d24aa7b562"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.563198+00:00",
+            "consumed_at": "2026-10-02T11:40:34.563198+00:00",
+            "observed_at": "2026-10-02T11:47:05.264166+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "2f72e400-755b-4d48-b9e3-d04d87b778ba"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.562974+00:00",
+            "consumed_at": "2026-10-02T11:40:34.562974+00:00",
+            "observed_at": "2026-10-02T11:47:05.264104+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "04c48bfd-7b2f-4382-839c-f9a6cae0c68c"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.562712+00:00",
+            "consumed_at": "2026-10-02T11:40:34.562712+00:00",
+            "observed_at": "2026-10-02T11:47:05.264030+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "d60c233d-ae43-40e9-956f-c67251e64809"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.562498+00:00",
+            "consumed_at": "2026-10-02T11:40:34.562498+00:00",
+            "observed_at": "2026-10-02T11:47:05.263961+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "f50d9fb8-e9f2-4ce3-bb57-2049a4b297dc"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.562279+00:00",
+            "consumed_at": "2026-10-02T11:40:34.562279+00:00",
+            "observed_at": "2026-10-02T11:47:05.263896+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "7a5d35ca-da16-4e9b-981e-e9c290150c10"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.562046+00:00",
+            "consumed_at": "2026-10-02T11:40:34.562046+00:00",
+            "observed_at": "2026-10-02T11:47:05.263834+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "6d26c20a-f136-4037-841c-4f03731f2602"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.561789+00:00",
+            "consumed_at": "2026-10-02T11:40:34.561789+00:00",
+            "observed_at": "2026-10-02T11:47:05.263768+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "46d5208c-a891-43f5-a62e-94f6fe12f7bb"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.561490+00:00",
+            "consumed_at": "2026-10-02T11:40:34.561490+00:00",
+            "observed_at": "2026-10-02T11:47:05.263702+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "6212f55e-b38e-43fb-84fd-a71a2cafbad3"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.561200+00:00",
+            "consumed_at": "2026-10-02T11:40:34.561200+00:00",
+            "observed_at": "2026-10-02T11:47:05.263634+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "1be2a4d5-4465-44d8-94b3-70af8ff90b3b"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.560949+00:00",
+            "consumed_at": "2026-10-02T11:40:34.560949+00:00",
+            "observed_at": "2026-10-02T11:47:05.263567+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "9c9aaa59-d6f3-4e8d-aed2-9e4154a6dea3"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.560731+00:00",
+            "consumed_at": "2026-10-02T11:40:34.560731+00:00",
+            "observed_at": "2026-10-02T11:47:05.263471+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "9191e86e-7cf6-44ca-82b4-475e30678ee5"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.560502+00:00",
+            "consumed_at": "2026-10-02T11:40:34.560502+00:00",
+            "observed_at": "2026-10-02T11:47:05.263406+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "050e4968-26be-4588-b5a4-f6ac8f89a363"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.560283+00:00",
+            "consumed_at": "2026-10-02T11:40:34.560283+00:00",
+            "observed_at": "2026-10-02T11:47:05.263335+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "fa0a4baa-29f1-4cfe-aacc-0f2f915cd0a8"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.560050+00:00",
+            "consumed_at": "2026-10-02T11:40:34.560050+00:00",
+            "observed_at": "2026-10-02T11:47:05.263278+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "8e9c3a88-febe-4d6b-9107-65c64873449b"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.559826+00:00",
+            "consumed_at": "2026-10-02T11:40:34.559826+00:00",
+            "observed_at": "2026-10-02T11:47:05.263218+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "61e5a150-9379-471c-8c95-39830c10da39"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.559593+00:00",
+            "consumed_at": "2026-10-02T11:40:34.559593+00:00",
+            "observed_at": "2026-10-02T11:47:05.263154+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "77472c75-5400-4efb-b030-cd9cddb1c62c"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.559315+00:00",
+            "consumed_at": "2026-10-02T11:40:34.559315+00:00",
+            "observed_at": "2026-10-02T11:47:05.263086+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "16a1e4fd-bf7b-4b76-9cdf-b3ac4b5981a9"
+              }
+            ]
+          },
+          {
+            "status": "CONFIRMED",
+            "reason": "Real output exists in CRM shared state; persistence confirmed, current writer permissions unverified.",
+            "source_at": "2026-10-02T11:40:34.558967+00:00",
+            "consumed_at": "2026-10-02T11:40:34.558967+00:00",
+            "observed_at": "2026-10-02T11:47:05.263020+00:00",
+            "organization_id": "06eaf14d-a535-4ccc-ad17-286da58d3fdd",
+            "is_test": null,
+            "workflow_run_id": null,
+            "references": [
+              {
+                "table": "recommendations",
+                "id": "48bf365c-e2c2-4bb7-95ce-3caa4c471ebd"
+              }
+            ]
+          }
+        ],
+        "trace_id": null,
+        "trace_ids": []
+      },
+      {
+        "id": "request_consumption",
+        "from": "crm",
+        "to": "devspace_one",
+        "table": "execution_requests",
+        "consumer_table": "execution_results",
+        "foreign_key": "execution_request_id",
+        "approval_required": true,
+        "receipt_statuses": [
+          "RUNNING",
+          "COMPLETED"
+        ],
+        "receipt_timestamp": "updated_at",
+        "stage": "execution",
+        "status": "UNKNOWN",
+        "reason": "No attributable source record / receipt exposed in the monitored scope.",
+        "threshold_seconds": null,
+        "evidence": [],
+        "trace_id": null,
+        "trace_ids": []
+      },
+      {
+        "id": "result_write",
+        "from": "devspace_one",
+        "to": "crm",
+        "table": "execution_results",
+        "stage": "execution",
+        "status": "UNKNOWN",
+        "reason": "No attributable source record / receipt exposed in the monitored scope.",
+        "threshold_seconds": null,
+        "evidence": [],
+        "trace_id": null,
+        "trace_ids": []
+      },
+      {
+        "id": "feedback_read",
+        "from": "crm",
+        "to": "mmonolith",
+        "table": "execution_results",
+        "consumer_table": "feedback_evaluations",
+        "foreign_key": "execution_result_id",
+        "stage": "feedback",
+        "status": "UNKNOWN",
+        "reason": "No attributable source record / receipt exposed in the monitored scope.",
+        "threshold_seconds": null,
+        "evidence": [],
+        "trace_id": null,
+        "trace_ids": []
+      }
+    ],
+    "scholarship_research": [
+      {
+        "id": "product_intelligence_write",
+        "from": "mmonolith",
+        "to": "crm",
+        "table": "intelligence_reports",
+        "status": "UNKNOWN",
+        "reason": "No attributable source record / receipt exposed in the monitored scope.",
+        "threshold_seconds": null,
+        "evidence": [],
+        "trace_id": null,
+        "trace_ids": []
+      }
+    ],
+    "devspace_services": [
+      {
+        "id": "outreach_ingestion",
+        "from": "devspace_one",
+        "to": "crm",
+        "table": "leads",
+        "status": "UNKNOWN",
+        "reason": "No attributable source record / receipt exposed in the monitored scope.",
+        "threshold_seconds": null,
+        "evidence": [],
+        "trace_id": null,
+        "trace_ids": []
+      },
+      {
+        "id": "service_demand_publication",
+        "from": "mmonolith",
+        "to": "crm",
+        "table": "intelligence_reports",
+        "status": "UNKNOWN",
+        "reason": "No attributable source record / receipt exposed in the monitored scope.",
+        "threshold_seconds": null,
+        "evidence": [],
+        "trace_id": null,
+        "trace_ids": []
+      }
+    ],
+    "devspace_clients": [
+      {
+        "id": "intelligence_write",
+        "from": "mmonolith",
+        "to": "crm",
+        "table": "intelligence_reports",
+        "stage": "research",
+        "status": "UNKNOWN",
+        "reason": "No attributable source record / receipt exposed in the monitored scope.",
+        "threshold_seconds": null,
+        "evidence": [],
+        "trace_id": null,
+        "trace_ids": []
+      },
+      {
+        "id": "intelligence_read",
+        "from": "crm",
+        "to": "decision_engine",
+        "table": "intelligence_reports",
+        "consumer_table": "recommendation_evidence",
+        "foreign_key": "intelligence_report_id",
+        "stage": "decision",
+        "status": "UNKNOWN",
+        "reason": "No attributable source record / receipt exposed in the monitored scope.",
+        "threshold_seconds": null,
+        "evidence": [],
+        "trace_id": null,
+        "trace_ids": []
+      },
+      {
+        "id": "recommendation_write",
+        "from": "decision_engine",
+        "to": "crm",
+        "table": "recommendations",
+        "stage": "decision",
+        "status": "UNKNOWN",
+        "reason": "No attributable source record / receipt exposed in the monitored scope.",
+        "threshold_seconds": null,
+        "evidence": [],
+        "trace_id": null,
+        "trace_ids": []
+      },
+      {
+        "id": "request_consumption",
+        "from": "crm",
+        "to": "devspace_one",
+        "table": "execution_requests",
+        "consumer_table": "execution_results",
+        "foreign_key": "execution_request_id",
+        "approval_required": true,
+        "receipt_statuses": [
+          "RUNNING",
+          "COMPLETED"
+        ],
+        "receipt_timestamp": "updated_at",
+        "stage": "execution",
+        "status": "UNKNOWN",
+        "reason": "No attributable source record / receipt exposed in the monitored scope.",
+        "threshold_seconds": null,
+        "evidence": [],
+        "trace_id": null,
+        "trace_ids": []
+      },
+      {
+        "id": "result_write",
+        "from": "devspace_one",
+        "to": "crm",
+        "table": "execution_results",
+        "stage": "execution",
+        "status": "UNKNOWN",
+        "reason": "No attributable source record / receipt exposed in the monitored scope.",
+        "threshold_seconds": null,
+        "evidence": [],
+        "trace_id": null,
+        "trace_ids": []
+      }
+    ],
+    "investor_research": [
+      {
+        "id": "product_intelligence_write",
+        "from": "mmonolith",
+        "to": "crm",
+        "table": "intelligence_reports",
+        "status": "UNKNOWN",
+        "reason": "No attributable source record / receipt exposed in the monitored scope.",
+        "threshold_seconds": null,
+        "evidence": [],
+        "trace_id": null,
+        "trace_ids": []
+      }
+    ]
+  },
+  "health_summary": {
+    "UNKNOWN": 18,
+    "NOT_CONFIGURED": 6,
+    "HEALTHY": 1
+  },
+  "scope": "One read-only live collection. Temporary local monitoring history. No engine launched and no business data modified."
+}

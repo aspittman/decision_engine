@@ -37,7 +37,7 @@ class Strategy(ABC):
         opportunity = sum((100 - selected[m].value if m in self.inverse else selected[m].value) * weight
                           for m, weight in settings["metrics"].items() if m in selected)
         historical, historical_evidence = feedback(context, service, self.config)
-        budget = min(settings["target_budget"], context.available_budget)
+        budget = min(settings["target_budget"], context.constraints.max_domain_acquisition_price) if self.kind == "DOMAIN_ACQUISITION" else min(settings["target_budget"], context.available_budget)
         if self.kind in ("GOOGLE_ADS", "META_ADS"):
             budget = min(budget, context.available_ad_budget)
         budget = int(budget * 100) / 100
@@ -45,7 +45,7 @@ class Strategy(ABC):
                       "historical_performance": historical, "expected_roi": historical,
                       "strategic_fit": 100 if service in context.constraints.service_preferences else 70,
                       "risk": {"LOW": 20, "MEDIUM": 50, "HIGH": 80}[self.risk],
-                      "cost": 100 * budget / max(1, context.available_budget), "uncertainty": 100 * (1 - certainty)}
+                      "cost": 100 * budget / max(1, context.constraints.max_domain_acquisition_price if self.kind == "DOMAIN_ACQUISITION" else context.available_budget), "uncertainty": 100 * (1 - certainty)}
         result = StrategyEvaluation(self.kind, service, self.action,
                                     confidence=certainty, suggested_budget=budget, expected_cost=budget,
                                     reason=reason, risk_level=self.risk, components=components)

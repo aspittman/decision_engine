@@ -1,0 +1,35 @@
+{
+  "engine_id": "decision_engine",
+  "url_env": "CRM_API_URL",
+  "secret_env": "CRM_API_SECRET",
+  "fallback_route": "/api/decision-engine/context",
+  "services": {
+    "domain_merchant": {
+      "inputs": [
+        "market_signals",
+        "intelligence_reports",
+        "predictions"
+      ]
+    },
+    "devspace_clients": {
+      "inputs": [
+        "intelligence_reports"
+      ]
+    },
+    "devspace_services": {
+      "inputs": [
+        "intelligence_reports"
+      ]
+    },
+    "scholarship_research": {
+      "inputs": [
+        "intelligence_reports"
+      ]
+    },
+    "investor_research": {
+      "inputs": [
+        "intelligence_reports"
+      ]
+    }
+  }
+}

@@ -37,8 +37,8 @@
       ]
     },
     "DOMAIN_ACQUISITION": {
-      "minimum_budget": 50,
-      "target_budget": 100,
+      "minimum_budget": 1,
+      "target_budget": 12,
       "metrics": {
         "comparable_domain_sales": 0.3,
         "commercial_intent": 0.25,
@@ -92,5 +92,24 @@
         "keyword_opportunity"
       ]
     }
+  },
+  "domain_research_policy": {
+    "minimum_comparable_sales": 3,
+    "minimum_monthly_searches": 100,
+    "minimum_potential_buyers": 1,
+    "availability_max_age_hours": 24,
+    "minimum_feedback_sample": 30,
+    "negative_feedback_penalty": 10,
+    "score_weights": {
+      "demand": 20,
+      "commercial_intent": 20,
+      "comparable_sales": 15,
+      "buyer_density": 15,
+      "historical_performance": 15,
+      "trend": 10,
+      "brandability": 5
+    },
+    "full_demand_searches": 1000,
+    "full_buyer_count": 3
   }
 }
