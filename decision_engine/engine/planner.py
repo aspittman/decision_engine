@@ -3,7 +3,12 @@ from decimal import Decimal
 
 def rank_and_plan(evaluations, context):
     """Allocate one shared budget and resolve dependencies before persistence."""
-    active = {r["recommendation_type"] for r in context.active}
+    # Advisory assessments carry no executable action and have separate database uniqueness.
+    active = {r["recommendation_type"] for r in context.active
+              if not (r.get('metadata', {}).get('decision_contract') == 'service-decision-v1'
+                      and r.get('metadata', {}).get('execution_authorized') is False
+                      and r.get('execution_service') is None
+                      and r.get('metadata', {}).get('action_type') is None)}
     candidates = {e.recommendation_type: e for e in evaluations if e.eligible and e.recommendation_type not in active}
     rejected = [f"{kind}: an active recommendation already exists" for kind in active if any(e.recommendation_type == kind and e.eligible for e in evaluations)]
     remaining = Decimal(str(context.available_budget))
